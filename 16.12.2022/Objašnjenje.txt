@@ -1,0 +1,92 @@
+console - komanda kojom govorimo da želimo raditi nešto sa konzolom
+console.log - komanda kojom govorimo da želimo nešto prikazati na konzoli
+console.log(rezultat)
+console.log("Rezultat je: " + rezultat)
+
+for (let i = 1; i < 10, i++) // deklarišemo varijablu i, postavljamo je na 1; dok ne dođe do/jednako 10; inkrementamo vrijednost)
+{
+	if(i % 2 != 0) // za svako i provjerimo da li se može modulirati sa 2, odnosno da li ima ostatka
+        console.log(i); // ako i ima ostatka poslije moduliranja sa 2, ispišemo i u konzolu
+
+	if(i % 2 == 0)
+	console.log(i);
+
+//moduliranje = ostatak = %
+}
+
+//deklarišemo vrijednost varijable, uzimamo iz dokumenta element koji ima odgovarajući id, uzimamo tekst iz tog elementa, uzimamo dužinu teksta
+let paragraph = document.getElementById("mojParagraf").innerText.length;
+//u konzoli ispisujemo vrijednost dužine (broja karaktera) u tekstu
+console.log("Broj karaktera u paragrafu je: " + paragraph);
+
+//pravimo funkciju, deklarišemo vrijednosti koje će se uzimati unutar nje
+function kalkulator (prviBroj, drugiBroj, operator) 
+{
+//ako imamo unesen prvi i drugi broj
+    if(prviBroj && drugiBroj){
+//prelazimo na switch case
+//unutar switch casea provjeravamo vrijedost operatora
+        switch(operator){
+		// ako je operator vrijednost '+', ispisujemo zbir brojeva, prekidamo funkciju
+            case '+': console.log(prviBroj + drugiBroj); break;
+		// ako je operator vrijednost '-', ispisujemo razliku brojeva, prekidamo funkciju
+            case '-': console.log(prviBroj - drugiBroj); break;
+		// ako je operator vrijednost '*', ispisujemo proizvod brojeva, prekidamo funkciju
+            case '*': console.log(prviBroj * drugiBroj); break;
+		// ako je operator vrijednost '/', ispisujemo djeljenje brojeva, prekidamo funkciju
+            case '/': console.log(prviBroj / drugiBroj); break;
+		//ako operator nije imao prethodne vrijednosti, onda defaultno vracamo da ispis null
+            default : console.log('null'); break;
+        }
+    }
+}
+// testiramo funkciju da vidimo da li rade operacije
+kalkulator(1,2,'+')
+kalkulator(1,2,'-')
+kalkulator(1,2,'*')
+kalkulator(1,2,'/')
+// testiramo ispis defaultne vrijednosti
+kalkulator(1,2,'?')
+
+//pravimo funkciju koja će unutar sebe imati niz i element koji će se tražiti
+function vratiStatus(niz, trazeniElement)
+{
+	//funkcija će ispisati true ili false na osnovu rezultata
+	//inlcudes traži element u nizu
+	//ako niz ima element - true
+	//ako niz nema element - false
+    console.log(niz.includes(trazeniElement));
+}
+//testiramo true
+//niz koji ima element, element
+vratiStatus([5,10,15,20,25], 15);
+//testiramo false
+//niz koji nema element, element
+vratiStatus([5,10,15,20,25], 1);
+
+//pravimo funkciju koja prima vrijednosti keys i values
+//nizovi koji imaju atribute i objekte (ugl ovo treba da bude tekstualno)
+function vratiObjekat(keys, values)
+{
+	//provjeravamo dužine nizova
+	//niz X = [1, 2, 3] = ima dužinu (length) 3
+    if(keys.length != values.length)
+    {
+	//ako se dužine ne poklapaju, vraćamo empty
+        console.log("empty");
+    }
+    else
+    {
+	//ako se dužine poklapaju, vraćamo objekat iz niza A spojena sa objektom niza B
+	//ime: + Amra, prezime: + Šijak,...
+	//nizovi kreću od 0, odnosno prvi objekat je na vrijednosti 0
+        for(let i = 0; i < keys.length; i++){ž
+		//ispišemo spojene atribute i objekte
+            console.log(keys[i] + values[i]);
+        }
+    }
+}
+//testiramo dva nejednaka niza
+vratiObjekat(['ime: ', 'prezime: ', 'godine: '], ['Amra', 'Šijak']);
+//testiramo dva niza koji imaju istu dužinu i broj elemenata
+vratiObjekat(['ime: ', 'prezime: ', 'godine: ', 'skola: '], ['Amra', 'Šijak', 24, 'Bugojno']);

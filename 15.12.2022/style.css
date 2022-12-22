@@ -1,0 +1,9 @@
+p, h1, h2, h3 {
+    color: blue;
+  }
+  #mojaLista li {
+    border: 5px solid black;
+  }
+  #posebnaLista li:nth-child(2n) {
+    background-color: yellow;
+  }
